@@ -7,7 +7,7 @@ Eine Web-App (PWA), mit der du deine Mahlzeiten **einsprichst** – die App bere
 
 - **Spracheingabe auf Deutsch** (Web Speech API) – z. B. „Zwei Scheiben Vollkornbrot mit Butter und eine Tasse Kaffee mit Milch“
 - **Kalorienschätzung mit Claude** (optional, mit eigenem Anthropic-API-Schlüssel): versteht beliebige Gerichte und Mengenangaben
-- **Offline-Datenbank** mit ~130 gängigen Lebensmitteln als Ausweichlösung – funktioniert ohne Schlüssel und ohne Internet
+- **Offline-Datenbank** mit über 120 gängigen Lebensmitteln als Ausweichlösung – funktioniert ohne Schlüssel und ohne Internet
 - Tagesübersicht mit Tagesziel, Fortschrittsbalken und Makronährstoffen
 - Tagebuch nach Mahlzeiten (Frühstück, Mittag, Abend, Snack), Einträge löschbar, Vor-/Zurückblättern zwischen Tagen
 - Daten-Export als JSON
