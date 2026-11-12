@@ -1,0 +1,105 @@
+:root {
+  --bg: #f4f6f3;
+  --card: #ffffff;
+  --text: #1d2420;
+  --muted: #69736c;
+  --accent: #2f7d4f;
+  --accent-text: #ffffff;
+  --border: #dde3de;
+  --danger: #b3261e;
+  --bar-bg: #e5ebe6;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121614;
+    --card: #1c221f;
+    --text: #e8eee9;
+    --muted: #9aa69e;
+    --accent: #5cbf85;
+    --accent-text: #0c1a12;
+    --border: #2c3530;
+    --danger: #f2948d;
+    --bar-bg: #2a332e;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.4;
+}
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px; max-width: 640px; margin: 0 auto;
+  background: var(--bg);
+}
+h1 { font-size: 1.25rem; margin: 0; }
+h2 { font-size: 1.05rem; margin: 0 0 8px; }
+main { max-width: 640px; margin: 0 auto; padding: 0 16px 48px; }
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 16px; margin-bottom: 16px;
+}
+.hidden { display: none; }
+.muted { color: var(--muted); }
+.small { font-size: .85rem; }
+button, select, input, textarea {
+  font: inherit; color: inherit;
+}
+button, select {
+  border: 1px solid var(--border); background: var(--card);
+  border-radius: 10px; padding: 10px 14px; cursor: pointer;
+}
+button.primary { background: var(--accent); color: var(--accent-text); border-color: var(--accent); font-weight: 600; }
+button:disabled { opacity: .5; cursor: default; }
+.icon-btn { padding: 6px 12px; font-size: 1.2rem; }
+
+.summary { text-align: center; }
+.date-nav { display: flex; align-items: center; justify-content: space-between; }
+#dateLabel { font-weight: 600; }
+.total { margin: 8px 0; }
+#totalKcal { font-size: 2.8rem; font-weight: 700; }
+.unit { color: var(--muted); margin-left: 4px; }
+.progress { height: 10px; border-radius: 5px; background: var(--bar-bg); overflow: hidden; }
+#progressBar { height: 100%; width: 0; background: var(--accent); transition: width .3s; }
+#progressBar.over { background: var(--danger); }
+.macros { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; font-size: .95rem; }
+
+.label { display: block; font-weight: 600; margin-bottom: 8px; }
+textarea {
+  width: 100%; resize: vertical; padding: 10px; border-radius: 10px;
+  border: 1px solid var(--border); background: var(--bg);
+}
+.actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+.actions .primary { margin-left: auto; }
+.mic { display: inline-flex; align-items: center; gap: 6px; }
+.mic.listening { background: var(--danger); color: #fff; border-color: var(--danger); animation: pulse 1.2s infinite; }
+@keyframes pulse { 50% { opacity: .7; } }
+.status { min-height: 1.2em; margin: 8px 0 0; color: var(--muted); font-size: .9rem; }
+.status.error { color: var(--danger); }
+
+.items { list-style: none; padding: 0; margin: 8px 0; }
+.items li {
+  display: flex; justify-content: space-between; gap: 12px;
+  padding: 8px 0; border-bottom: 1px solid var(--border);
+}
+.items li:last-child { border-bottom: 0; }
+.items .name { font-weight: 500; }
+.items .detail { font-size: .85rem; color: var(--muted); }
+.items .kcal { white-space: nowrap; font-weight: 600; }
+.items .warn { color: var(--danger); }
+.result-total { text-align: right; font-size: 1.1rem; }
+
+.meal-group { margin-bottom: 12px; }
+.meal-group h3 { font-size: .95rem; margin: 8px 0 4px; display: flex; justify-content: space-between; }
+.entry { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--border); }
+.entry .text { flex: 1; }
+.entry .del { padding: 4px 10px; border: 0; background: transparent; color: var(--muted); }
+
+dialog { border: 1px solid var(--border); border-radius: 16px; background: var(--card); color: var(--text); width: min(420px, calc(100vw - 32px)); }
+dialog::backdrop { background: rgba(0,0,0,.4); }
+.settings label { display: block; margin: 12px 0; font-weight: 500; }
+.settings input { display: block; width: 100%; margin-top: 4px; padding: 10px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg); }
