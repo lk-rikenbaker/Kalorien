@@ -13,7 +13,18 @@ Eine Web-App (PWA), mit der du deine Mahlzeiten **einsprichst** – die App bere
 - Daten-Export als JSON
 - Installierbar auf dem Handy („Zum Startbildschirm hinzufügen“), offlinefähig
 
-## Starten
+## Schnellstart: eine einzige Datei
+
+**`kalorien.html`** herunterladen und per Doppelklick im Browser öffnen – fertig. Kein Server, keine Installation.
+Die Datei enthält die komplette App (Design, Logik, Lebensmitteldatenbank, Claude-Anbindung).
+
+Neu erzeugen nach Änderungen am Code: `npm install && npm run build:single`
+
+> Spracheingabe aus einer lokalen Datei: In Chrome und Edge klappt das (Mikrofon-Freigabe bestätigen).
+> Safari erlaubt das Mikrofon bei lokalen Dateien teils nicht – dann die Server-Variante unten nutzen.
+> Der Offline-Cache und „Zum Startbildschirm hinzufügen“ gibt es nur in der Server-Variante.
+
+## Starten mit Webserver
 
 Die App ist rein statisch – einfach den Ordner über einen Webserver ausliefern:
 
@@ -45,5 +56,6 @@ Ohne Schlüssel (oder wenn die API nicht erreichbar ist) rechnet die App mit der
 | `js/parser.js`, `js/foods.js` | Offline-Erkennung von Mengen und Lebensmitteln + Nährwertdatenbank |
 | `js/vendor/anthropic-sdk.js` | Gebündeltes Anthropic-SDK für den Browser (`npm install && npm run build:vendor`) |
 | `sw.js`, `manifest.webmanifest` | PWA / Offline-Cache |
+| `build-single.mjs` → `kalorien.html` | Baut alles zu einer einzigen, eigenständigen HTML-Datei |
 
 Alle Nährwerte sind Schätzungen und ersetzen keine Ernährungsberatung.
